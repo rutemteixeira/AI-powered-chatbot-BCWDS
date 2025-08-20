@@ -7,7 +7,7 @@ An AI-powered chatbot designed to support Fidelidade's insurance agents by provi
 This solution addresses low financial literacy among customers by offloading explanatory tasks from agents, allowing them to focus on high-value sales and relationship building. The chatbot uses a RAG architecture grounded in official PDF documentation to ensure compliant, precise responses.
 
 
-## Repo structure
+## Repository structure
 - `pdf_chatbot.folder` - knowledge base with pdf documents provided by the client
 - `BCWDS_chatbot_code.ipynb` - main notebook code with full RAG and Text Preprocessing Pipeline + testing and evaluation of algorithm
 - `fid.png` and `download.png` - images used for the aesthetic of the streamlit interface
@@ -19,7 +19,7 @@ This solution addresses low financial literacy among customers by offloading exp
 
 | Phase              |	          Techniques                                                           |
 |--------------------|-------------------------------------------------------------------------------- |
-| Data Preparation   | Text and Image Extraction, Cleaning, Chunking. API Client Setup. RAG Framework  |
+|Data Preparation    | Text and Image Extraction, Cleaning, Chunking. API Client Setup. RAG Framework  |
 |Feature Engineering | Tokenization. Building a searchable index (FAISS) for real-time semantic search |
 |Model Selection     | GPT-4-o-mini within a RAG pipeline                                              |
 |Evaluation	         | Cosine similarity, Manual Qualitative Evaluation                                |
@@ -60,11 +60,9 @@ This solution addresses low financial literacy among customers by offloading exp
   - run on the command " streamlit run fidelia.py" to host the interface locally
  
 ## Results
-- **83-95% Cosine Similarity**
-- How semantically identical the chatbot's responses are to the perfect, expert-written answers
+- **83-95% Cosine Similarity** - How semantically identical the chatbot's responses are to the perfect, expert-written answers
 
-- **1.5M€ net savings**
-- Considering a conservative projection of 15min saved per agent in the network
+- **1.5M€ net savings** - Considering a conservative projection of 15min saved per agent in the network
 
 ## Key Observations and Future Improvements
 - The solution was also developed for integration via telegram, or other hosted platforms via Business API
