@@ -1,29 +1,40 @@
 # Assistente Fidélia - AI-Powered Chatbot for Commercial Agents
 
-Tested sequential machine learning algorithms on time series data to forecast sales by product group over a 10-month period.
+An AI-powered chatbot designed to support Fidelidade's insurance agents by providing instant, accurate answers to complex product questions using Retrieval-Augmented Generation (RAG) technology.
 
 ## Project Overview
 
-This solution was developed as part of the Business Cases with Data Science course in the MSc in Data Science and Advanced Analytics program at NOVA IMS, Lisbon. The course provides hands-on experience with real-world cases presented by established clients. This particular case was proposed by Siemens. <br>
+This solution was developed as part of the Business Cases with Data Science course in the MSc in Data Science and Advanced Analytics program at NOVA IMS, Lisbon. The course provides hands-on experience with real-world cases presented by established clients. This particular case was proposed by Fidelidade Insurance Company. <br>
 
-The client’s business need was to develop an AI-driven sales forecasting model for Siemens' Smart Infrastructure Division in Germany to predict monthly sales (aggregated by product group) over a 10-month horizon. The solution integrated internal sales history with external macroeconomic indicators to move beyond manual, biased forecasting methods. The goal was to enhance accuracy, optimize resource allocation, and provide a scalable, data-driven framework for strategic decision-making.
+The client’s business need was to offload routine explanatory tasks from agents, such as addressing clients with low financial literacy, enabling agents to focus on high-value sales and relationship-building activities. To meet this need, we developed a chatbot based on a Retrieval-Augmented Generation (RAG) architecture, grounded in official PDF documentation to ensure compliant and precise responses.
+
 
 ## Repository structure
-- `external_data.folder` - all macroeconomical indicators introduced from external data to enrich our existing correlations
-- `BCWDS_forecasting_code.ipynb` - main notebook code with full pipeline and model assesment
-- `BCWDS_forecasting_report.ipynb` - full written report in pdf
+- `pdf_chatbot.folder` - knowledge base with pdf documents provided by the client
+- `BCWDS_chatbot_code.ipynb` - main notebook code with full RAG and Text Preprocessing Pipeline + testing and evaluation of algorithm
+- `fid.png` and `download.png` - images used for the aesthetic of the streamlit interface
+- `fidelia.py` - code developed to host streamlit chatbot, connected to main notebook code
+- `chunks.pkl` ana `faiss_index.index` - chunks of text and semantic search systemextracted from main notebook to be used on chatbot for consistency
+- `fidelia_integration` - code available to enable integration on telegram for business
 
  
 ## Technical Approach
 
-| Phase              |	          Techniques                                                                                                  |
-|--------------------|---------------------------------------------------------------------------------------------------------------------- |
-|Data Preparation    | Advanced missing value imputation (Polynomial Regression, proxy variables), datetime formatting, monthly aggregation  |
-|Feature Engineering | Holiday count feature engineering, Exhaustive Lag Analysis, Incorporation of external data                            |
-|Model Selection     | Ensemble Model: Neural Prophet (for seasonality/trends) and LSTM (for complex temporal dependencies)                  |
-|Evaluation	         | Root Mean Squared Error (RMSE), Visual analysis (actual vs. predicted plots)                                          |
+| Phase              |	          Techniques                                                           |
+|--------------------|-------------------------------------------------------------------------------- |
+|Data Preparation    | Text and Image Extraction, Cleaning, Chunking. API Client Setup. RAG Framework  |
+|Feature Engineering | Tokenization. Building a searchable index (FAISS) for real-time semantic search |
+|Model Selection     | GPT-4-o-mini within a RAG pipeline                                              |
+|Evaluation	         | Cosine similarity, Manual Qualitative Evaluation                                |
 
 
+## Key hosted chatbot Features
+
+- RAG architecture for accurate, document-grounded responses
+- User-friendly Streamlit interface
+- Voice input capability
+- Multi-language support
+- Integration capabilities (Telegram, Business API)
 
 ## Technology Stack
 
@@ -36,19 +47,30 @@ The client’s business need was to develop an AI-driven sales forecasting model
   
 
 ## Key Challenges
-- Little context provided by the client, lack of clarity in data forced us to assumptions
-- Merging and cleaning disparate datasets with complex missing value patterns
-- Identifying the optimal lag (time delay) for each macroeconomic indicator's effect on sales for each product group
-- Building a robust model that can perform accurately and generalize well throught different product groups and sales patterns
+- Limited ability to tune the closed-source model, since it cannot be retrained.
+- Designing and implementing features to the interface that maximize usability and provide added value
+- Restricting the chatbot to relevant information while still enabling it to answer questions outside the knowledge base
+- Ensuring the chatbot provides helpful, accurate answers strictly based on provided documents while gracefully handling out-of-scope queries to avoid "hallucination" in a regulated industry.
 
+
+## Instructions to Run
+- Make sure all files are on the same directory
+- Do not rename the folder with the knowledge base documents
+- First run main notebook - it will generate a new folder on the directory called "outputs"
+- To run `fidelia.py`:
+  - uncomment the first lines of code and do the installs on the command, if needed
+  - make sure the directory is correct before running, oterwise, change directory on command
+  - run on the command " streamlit run fidelia.py" to host the interface locally
  
 ## Results
-- **~0.17 Average RMSE** - Closer to 0 = more accurate predictions
-
+- **83-95% Cosine Similarity** - How semantically identical the chatbot's responses are to the perfect, expert-written answers
+- **1.5M€ net savings** - Considering a conservative projection of 15min saved per agent in the network
 
 ## Key Observations and Future Improvements
-- Seasonality is confirmed and detected by data analysis
-
+- The solution was also developed for integration via telegram, or other hosted platforms via Business API
+- Introduce user satisfaction surveys after each response, storing results in dataset for future analysis
+- Incorporate additional language quality metrics for more robust evaluation
+- Document reference system could be introduced to prioritize recent information over older as knowledge base scales
 
 ## Authors
 - André Lourenço
@@ -57,5 +79,4 @@ The client’s business need was to develop an AI-driven sales forecasting model
 - Rute Teixeira
 - Victor Silva
 
-### More details on https://rutemteixeira.github.io/generic/p6-sales-forecasting.html
-
+### More details on https://rutemteixeira.github.io/generic/p8-chatbot.html
