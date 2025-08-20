@@ -12,7 +12,8 @@ This solution addresses low financial literacy among customers by offloading exp
 - `BCWDS_chatbot_code.ipynb` - main notebook code with full RAG and Text Preprocessing Pipeline + testing and evaluation of algorithm
 - `fid.png` and `download.png` - images used for the aesthetic of the streamlit interface
 - `fidelia.py` - code developed to host streamlit chatbot, connected to main notebook code
-- `chunks.pkl` - chunks of text extracted from main notebook to be used on chatbot for consistency
+- `chunks.pkl` ana `faiss_index.index` - chunks of text and semantic search systemextracted from main notebook to be used on chatbot for consistency
+- `fidelia_integration` - code available to enable integration on telegram for business
 
  
 ## Technical Approach
