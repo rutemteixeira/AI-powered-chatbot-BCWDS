@@ -4,7 +4,9 @@ An AI-powered chatbot designed to support Fidelidade's insurance agents by provi
 
 ## Project Overview
 
-This solution addresses low financial literacy among customers by offloading explanatory tasks from agents, allowing them to focus on high-value sales and relationship building. The chatbot uses a RAG architecture grounded in official PDF documentation to ensure compliant, precise responses.
+This solution was developed as part of the Business Cases with Data Science course in the MSc in Data Science and Advanced Analytics program at NOVA IMS, Lisbon. The course provides hands-on experience with real-world cases presented by established clients. This particular case was proposed by Fidelidade Insurance Company. <br>
+
+The client’s business need was to offload routine explanatory tasks from agents, such as addressing clients with low financial literacy, enabling agents to focus on high-value sales and relationship-building activities. To meet this need, we developed a chatbot based on a Retrieval-Augmented Generation (RAG) architecture, grounded in official PDF documentation to ensure compliant and precise responses.
 
 
 ## Repository structure
@@ -41,7 +43,7 @@ This solution addresses low financial literacy among customers by offloading exp
 - **APIs**: Open AI API (GPT-4-o-mini)
 - **UI Framework**: Streamlit
 - **Data Processing**: Text preprocessing, tokenization
-- **Vector Database**: FAISS for semantic search
+- **Vector Database**: FAISS structure for semantic search
   
 
 ## Key Challenges
@@ -62,7 +64,6 @@ This solution addresses low financial literacy among customers by offloading exp
  
 ## Results
 - **83-95% Cosine Similarity** - How semantically identical the chatbot's responses are to the perfect, expert-written answers
-
 - **1.5M€ net savings** - Considering a conservative projection of 15min saved per agent in the network
 
 ## Key Observations and Future Improvements
