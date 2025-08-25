@@ -58,9 +58,9 @@ The client’s business need was to offload routine explanatory tasks from agent
 - Do not rename the folder with the knowledge base documents
 - First run main notebook - it will generate a new folder on the directory called "outputs"
 - To run `fidelia.py`:
-  - uncomment the first lines of code and do the installs on the command, if needed
-  - make sure the directory is correct before running, oterwise, change directory on command
-  - run on the command " streamlit run fidelia.py" to host the interface locally
+  - uncomment the first lines of code and do the installs on the terminal, if needed
+  - make sure the directory is correct before running, oterwise, change directory on terminal with "cd *copied path directory*"
+  - run the command " streamlit run fidelia.py" on terminal to host the interface locally
  
 ## Results
 - **83-95% Cosine Similarity** - How semantically identical the chatbot's responses are to the perfect, expert-written answers
